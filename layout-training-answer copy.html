@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{margin: 0; padding: 0;}
+    #root{
+      width: 100vw;
+      height: 100vh;
+      /* background-color: #ccc; */
+    }
+    #root>div:nth-child(1){
+      background-color: #333;
+    }
+    #root>div:nth-child(2){
+      background-color: #ddd;
+    }
+    .none{
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <div id="button-element">menu-1</div>
+    <div id="menu-items">items-1</div>
+  </div>
+  <script>
+    const button = document.getElementById('button-element');
+    console.log(button);
+
+    const menuItems = document.getElementById('menu-items');
+    console.log(menuItems);
+
+    // 추상화가 많이 되어있는 것
+    button.addEventListener('click', function(event){
+      console.dir(menuItems);
+      // return bool type
+      // 상세한 제어는 어렵다
+      if(menuItems.classList.contains('none')){
+        menuItems.classList.remove('none');
+
+      } else{
+        menuItems.classList.add('none');
+      }
+    });
+  </script>
+</body>
+</html>
