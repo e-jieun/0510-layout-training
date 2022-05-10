@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{margin: 0; padding: 0;}
+    #root{
+      width: 100vw;
+      height: 100vh;
+      /* background-color: #ccc; */
+    }
+    #root>div:nth-child(1){
+      background-color: #333;
+    }
+    #root>div:nth-child(2){
+      background-color: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <div id="button-element">menu-1</div>
+    <div id="menu-items">items-1</div>
+  </div>
+  <script>
+    const button = document.getElementById('button-element');
+    console.log(button);
+
+    const menuItems = document.getElementById('menu-items');
+    console.log(menuItems);
+
+    // 변수를 만들어서 변수 기준으로 핸들링
+    let clickValue = true;
+    button.addEventListener('click', function(){
+      // console.log('click');
+      if(clickValue === true){
+        // console.log('hi');
+        // 스타일을 수동명령 방식으로 함
+        menuItems.style.display = 'none';
+        clickValue = false;
+      } else{
+        // console.log('bye');
+        menuItems.style.display = 'block';
+        clickValue = true;
+      }
+    });
+  </script>
+</body>
+</html>
