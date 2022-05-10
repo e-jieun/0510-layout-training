@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #root{
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+    }
+    ul{
+      width: 20vh;
+      height: 5vh;
+      background-color: #c4c4c4;
+      list-style-type: none;
+      /* overflow: hidden; */
+      padding-top: 10px;
+      text-align: center;
+    }
+    li{
+      width: inherit;
+      height: inherit;
+      position: relative;
+      top: 5vh;
+      left: -4vh;
+      text-align: center;
+      background-color: #414141;
+      /* padding-top: 10px; */
+      margin: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <ul id="menu">menu
+      <li>menu-item</li>
+      <li>menu-item</li>
+      <li>menu-item</li>
+      <li>menu-item</li>
+    </ul>
+  </div>
+  <script>
+    // ul 식별
+    const ul = document.getElementById('menu');
+    console.log(ul);
+    console.dir(ul);
+    
+    // console.log(ul.children);
+    const li = ul.children;
+    console.log(li);
+
+    let clickValue = true;
+    ul.addEventListener('click', function(){
+      // console.log('clicked');
+      if(clickValue === true){
+        ul.style.overflow = 'visible';
+        console.log(ul.style);
+        clickValue = false;
+      } else{ 
+        ul.style.overflow = 'hidden';
+        clickValue = true;
+      }
+    });
+
+  </script>
+</body>
+</html>
