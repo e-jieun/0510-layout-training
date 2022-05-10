@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #root{
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+    }
+    ul{
+      width: 20vh;
+      height: 5vh;
+      background-color: #c4c4c4;
+      list-style-type: none;
+      padding-top: 10px;
+      display: inline;
+    }
+    ul>li{
+      width: 20vh;
+      height: 5vh;
+      position: relative;
+      top: 5vh;
+      left: -7vh;
+      text-align: center;
+      background-color: #414141;
+      margin: 20px;
+      display: block;
+    }
+    .none{
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <ul id="menu">
+      menu
+      <li>menu-item</li>
+      <li>menu-item</li>
+      <li>menu-item</li>
+      <li>menu-item</li>
+    </ul>
+  </div>
+  <script>
+    // ul 식별
+    const ul = document.getElementById('menu');
+    console.log(ul);
+    console.dir(ul);
+    
+    // console.log(ul.children);
+    // li 식별
+    const li = ul.children;
+    console.log(li);
+
+    // let clickValue = true;
+    ul.addEventListener('click', function(event){
+      console.log(event.target);
+      // ? ul에 이벤트를 적용하고 나서
+      // ?왜 클릭하면 event.target이 아닌 ul 태그에 적용이 될까?
+      // !이벤트 타겟을 콘솔에 찍어보면 ul>li 모두 나오는 것으로 확인되서 ul을 클릭할 때도 classList에 .none이란 클래스가 더해지고 제거가 됨
+      // !for문으로 배열로 리턴되는 ul.children인 li에 공통적용하기 위해, 이벤트 타겟을 정확히 태그로 설정해줬더니 ul 태그에 적용되지 않고 li 태그에만 반복적으로 적용이 가능했다
+      for(let i = 0; i < li.length; i++){
+        if(li[i].classList.contains('none')){
+          // ul.style.display = 'block';
+          li[i].classList.remove('none');
+          console.log('status: block');
+          console.log(event.target.style);
+        } else{
+          // ul.style.display = 'block';
+          li[i].classList.add('none');
+          console.log('status: none');
+        }
+      }
+    });
+
+  </script>
+</body>
+</html>
